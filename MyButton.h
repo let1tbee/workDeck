@@ -13,6 +13,8 @@ public:
   MyButton(byte btnPin);    //initiating, pinMode configuration
   bool btnAction();                      //Check click with timer, returns True on clic kor False
   void ledStat(MyL2C& scr, MyLed& led);  //Turns LED string off and on
+  void openPage(MyL2C& scr, byte page);
+  void textDisp(MyL2C& scr,byte pageTMP);
 private:
   byte _btnPin;
   uint32_t _tmr;

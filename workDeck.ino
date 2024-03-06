@@ -7,7 +7,7 @@
 #include "MyParcer.h"
 
 //Button pins
-#define btn1 2 
+#define btn1 2
 #define btn2 3
 #define btn3 4
 #define btn4 5
@@ -40,11 +40,10 @@ void setup() {
 
 void loop() {
   myEnc.encAction(scr, led);
-  if (Serial.available()) parc.myParcer(action4,scr,led,myEnc); //make a function!
-  if (action1.btnAction()) scr.screenFunc("Youtube");
-  if (action2.btnAction()) scr.screenFunc("Wikipedia");
-  if (action3.btnAction()) scr.screenFunc("Arduino");
+  if (Serial.available()) parc.myParcer(action4, scr, led, myEnc);
+  if (action1.btnAction()) action1.openPage(scr,1);
+  if (action2.btnAction()) action2.openPage(scr,2);
+  if (action3.btnAction()) action3.openPage(scr,3);
   if (action4.btnAction()) action4.ledStat(scr, led);
   scr.backToMenu();
-  
 }

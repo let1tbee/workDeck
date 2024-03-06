@@ -36,6 +36,8 @@ def onRead():
     data = rxs.split(',')
     print(data)
     match data[0]:
+         case "1":
+            openPage(data[1])
          case "2":
             onCheck(data[1])
          case "3":
@@ -63,12 +65,27 @@ def onTurnPCH():
     serialSend([4,ui.sliderBRT.value()])
     ui.labelBRTInt.setText(str(ui.sliderBRT.value()))
 
+def openPage(tmp):
+    match tmp:
+        case "1":
+            print("Youtube")
+            serialSend([1,1])
+        case "2":
+            print("Wikipedia")
+            serialSend([1, 2])
+        case "3":
+            print("Arduino")
+            serialSend([1, 3])
+
 ui.openB.clicked.connect(onOpen)
 ui.closeB.clicked.connect(onClose)
 serial.readyRead.connect(onRead)
 ui.checkL.clicked.connect(onCheckPC)
 ui.dialLED.sliderReleased.connect(onTurnPC)
 ui.sliderBRT.sliderReleased.connect(onTurnPCH)
+ui.btn1.clicked.connect(lambda: openPage("1"))
+ui.btn2.clicked.connect(lambda: openPage("2"))
+ui.btn3.clicked.connect(lambda: openPage("3"))
 
 ui.show()
 app.exec()

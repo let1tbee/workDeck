@@ -18,7 +18,7 @@ bool MyButton::btnAction() {
   }
   return false;  // false if unpressed
 }
-void MyButton::ledStat(MyL2C& scr, MyLed& led) { // Turns on and off led string
+void MyButton::ledStat(MyL2C& scr, MyLed& led) {  // Turns on and off led string
   switch (flagLED) {
     case (1):
       scr.screenFunc("Led String ON");
@@ -34,4 +34,14 @@ void MyButton::ledStat(MyL2C& scr, MyLed& led) { // Turns on and off led string
       break;
   }
   flagLED = !flagLED;
+}
+void MyButton::openPage(MyL2C& scr, byte  page) {
+  Serial.print("1,");
+  Serial.print(page);
+  textDisp(scr, page);
+}
+void MyButton::textDisp(MyL2C& scr,byte pageTMP) {
+  if (pageTMP ==1) scr.screenFunc("Youtube");
+  if (pageTMP ==2) scr.screenFunc("Wikipedia");
+  if (pageTMP ==3) scr.screenFunc("Arduino");
 }

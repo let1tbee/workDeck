@@ -13,6 +13,9 @@ public:
     data.parseInts(ints);
 
     switch (ints[0]) {
+      case 1:
+        btn.textDisp(scr, ints[1]);
+        break;
       case 2:
         btn.ledStat(scr, led);
         break;
@@ -34,6 +37,5 @@ public:
         break;
     }
   }
-
 private:
 };
