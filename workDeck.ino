@@ -1,10 +1,15 @@
 #pragma once
 #include <Arduino.h>
-#include "MyButton.h"
-#include "MyEncoder.h"
-#include "MyL2C.h"
-#include "MyLed.h"
-#include "MyParcer.h"
+#include "ArduinoSrc/MyButton.h"
+#include "ArduinoSrc/MyButton.cpp"
+#include "ArduinoSrc/MyEncoder.h"
+#include "ArduinoSrc/MyEncoder.cpp"
+#include "ArduinoSrc/MyL2C.h"
+#include "ArduinoSrc/MyL2C.cpp"
+#include "ArduinoSrc/MyLed.h"
+#include "ArduinoSrc/MyLed.cpp"
+#include "ArduinoSrc/MyParcer.h"
+#include "ArduinoSrc/MyParcer.cpp"
 
 //Button pins
 #define btn1 2
@@ -39,11 +44,11 @@ void setup() {
 }
 
 void loop() {
-  myEnc.encAction(scr, led);
-  if (Serial.available()) parc.myParcer(action4, scr, led, myEnc);
-  if (action1.btnAction()) action1.openPage(scr,1);
+  myEnc.encAction(scr, led); //waiting for input from encoder
+  if (Serial.available()) parc.myParcer(action4, scr, led, myEnc); // Parcing inputs from PC
+  if (action1.btnAction()) action1.openPage(scr,1);//waiting for input from buttons
   if (action2.btnAction()) action2.openPage(scr,2);
   if (action3.btnAction()) action3.openPage(scr,3);
   if (action4.btnAction()) action4.ledStat(scr, led);
-  scr.backToMenu();
+  scr.backToMenu(); // function returns to welcome screen within some delay
 }

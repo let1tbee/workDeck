@@ -1,7 +1,7 @@
 #include "HardwareSerial.h"
 #include "MyButton.h"
 
-MyButton::MyButton(byte btnPin) {
+MyButton::MyButton(byte btnPin) { //initializtion of needed pin where button connected
   _btnPin = btnPin;
   pinMode(_btnPin, INPUT_PULLUP);
 }
@@ -35,12 +35,12 @@ void MyButton::ledStat(MyL2C& scr, MyLed& led) {  // Turns on and off led string
   }
   flagLED = !flagLED;
 }
-void MyButton::openPage(MyL2C& scr, byte  page) {
+void MyButton::openPage(MyL2C& scr, byte  page) {// sends identifier of buttons to PC
   Serial.print("1,");
   Serial.print(page);
   textDisp(scr, page);
 }
-void MyButton::textDisp(MyL2C& scr,byte pageTMP) {
+void MyButton::textDisp(MyL2C& scr,byte pageTMP) {// displays name of triggered page
   if (pageTMP ==1) scr.screenFunc("Youtube");
   if (pageTMP ==2) scr.screenFunc("Wikipedia");
   if (pageTMP ==3) scr.screenFunc("Arduino");

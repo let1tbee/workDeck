@@ -1,22 +1,16 @@
 // Sets color mode if LED string
 
-#pragma once
-#include "FastLED.h"
+#include "MyLED.h"
 
-#define LED_PIN 9    // pin data LED
-#define LED_NUM 120  // number of leds in LED String
 
-class MyLed {
-
-public:
-  void ledInit() {  //LCD initalization
+  void MyLed::ledInit() {  //LCD initalization
     FastLED.addLeds< WS2812, LED_PIN, GRB>(leds, LED_NUM);
     FastLED.clear();
     FastLED.setBrightness(200);
     FastLED.show();
   }
 
-  void setMode(byte mode = 0) {  //LED modes
+  void MyLed::setMode(byte mode = 0) {  //LED modes
     switch (mode) {
       case 0:
         raindow();
@@ -54,17 +48,19 @@ public:
     }
   }
 
-  void ledOff() {  // turns off
+  void MyLed::ledOff() {  // turns off
     FastLED.clear();
     FastLED.show();
   }
-  void raindow() {  // default rainbow
+
+  void MyLed::raindow() {  // default rainbow
     for (int i = 0; i < LED_NUM; i++) {
       leds[i].setHue(i * 255 / LED_NUM);
     }
     FastLED.show();
   }
-  void doubleCol(int a, int b) {  // 50% of LED color "a", 50% - "b"
+
+  void MyLed::doubleCol(int a, int b) {  // 50% of LED color "a", 50% - "b"
     for (int i = 0; i < LED_NUM / 2; i++) {
       leds[i].setHue(a);
     }
@@ -74,23 +70,22 @@ public:
     FastLED.show();
   }
 
-  void setBRT(int &BRT) {  // sets brightness
+  void MyLed::setBRT(int &BRT) {  // sets brightness
     FastLED.setBrightness(BRT);
     FastLED.show();
   }
-  void setColor(int col) {  // sets static color
+
+  void MyLed::setColor(int col) {  // sets static color
     for (int i = 0; i < LED_NUM; i++) {
       leds[i].setHue(col);
     }
     FastLED.show();
   }
-  void setFlag() {
+
+  void MyLed::setFlag() {
     statFlag = !statFlag;
   }
-  bool getFlag() {
+  
+  bool MyLed::getFlag() {
     return statFlag;
   }
-private:
-  CRGB leds[LED_NUM];
-  bool statFlag = 0;
-};
