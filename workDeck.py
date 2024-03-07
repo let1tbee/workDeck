@@ -101,14 +101,14 @@ def openAr():
 def openPage(tmp):
     match tmp:
         case "1":
+            serialSend([1, 1])
             openYT()
-            serialSend([1,1])
         case "2":
-            openWK()
             serialSend([1, 2])
+            openWK()
         case "3":
-            openAr()
             serialSend([1, 3])
+            openAr()
 
 ui.openB.clicked.connect(onOpen)
 ui.closeB.clicked.connect(onClose)
