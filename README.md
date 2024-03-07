@@ -1,5 +1,5 @@
 # workDeck
-Project Based on Arduino c-based language and Python.
+Project Based on Arduino c-based language, Python, Selenium and QT-Designer.
 Features:
 1. Buttons 1-3 opens page in Chrome
 2. Button 4 turns on\off LED String
