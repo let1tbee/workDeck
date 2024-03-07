@@ -14,7 +14,9 @@ For Python:
 3. Webdriver-Manager
 
 For Arduino:
-1. Fastled
-2. Priklol
+1. FastLED.h library
+2. EncButton.h library
+3. LiquidCrystal_I2C.h library
+4. GParser.h library
 
 In case of any questions or suggestions feel free to contact me in LinkedIn https://www.linkedin.com/in/olratushnyi/
