@@ -19,4 +19,4 @@ For Arduino:
 3. LiquidCrystal_I2C.h library
 4. GParser.h library
 
-In case of any questions or suggestions feel free to contact me in LinkedIn https://www.linkedin.com/in/olratushnyi/
+In case of any questions or suggestions feel free to contact me
